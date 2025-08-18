@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pisanu Udomlapsakul · Paid Media Lead</title>
+  <meta name="description" content="Paid Media Lead with 2+ years experience. ROAS up to 8×, CPA -32%, coached 5 buyers, GA4/UTM frameworks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    :root{--bg:#ffffff;--surface:#f6f6f7;--ink:#0f1115;--ink-soft:#444a57;--border:#e8e9ee;--primary:#0a84ff;--radius:14px;--shadow:0 10px 30px rgba(0,0,0,.06)}
+    .dark{--bg:#0b0c0f;--surface:#15171c;--ink:#fdfdfd;--ink-soft:#cfd3df;--border:#2a2e3a;--primary:#3da9ff;--shadow:0 14px 34px rgba(0,0,0,.45)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--ink);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img,video{max-width:100%;display:block}
+
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(14px);background:color-mix(in oklab,var(--bg),transparent 10%);border-bottom:1px solid var(--border)}
+    .wrap{max-width:1120px;margin-inline:auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{display:flex;gap:10px;align-items:center}
+    .brand h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.4px}
+    .links{display:flex;gap:18px;align-items:center}
+    .links a{font-weight:600;opacity:.88}
+    .links a:hover{color:var(--primary)}
+
+    /* ให้ทุก section เลื่อนแล้วไม่ชน header */
+    section{scroll-margin-top:90px;}
+
+    /* segmented lang */
+    .seg{display:inline-flex;border:1px solid var(--border);background:var(--surface);border-radius:12px;padding:2px}
+    .seg button{appearance:none;background:transparent;color:var(--ink);border:0;padding:6px 10px;font-weight:700;border-radius:10px;cursor:pointer;min-width:44px}
+    .seg button.active{background:var(--ink);color:#fff}
+    .seg button:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+
+    /* iOS-like dark mode switch */
+    .switch{--w:56px;--h:30px;--p:3px;--thumb:24px;position:relative;display:inline-block;width:var(--w);height:var(--h)}
+    .switch input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0}
+    .switch .track{position:absolute;inset:0;border-radius:999px;background:color-mix(in oklab,var(--ink),white 88%);border:1px solid var(--border);transition:background .2s ease,border-color .2s ease}
+    .switch .thumb{position:absolute;top:var(--p);left:var(--p);width:var(--thumb);height:var(--thumb);border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15);transform:translateX(0);transition:transform .22s cubic-bezier(.4,0,.2,1)}
+    .switch .icon{position:absolute;top:50%;transform:translateY(-50%);font-size:12px;opacity:.75;transition:opacity .2s ease}
+    .switch .icon.sun{left:8px}
+    .switch .icon.moon{right:8px;opacity:.35}
+    .switch:has(input:checked) .thumb{transform:translateX(calc(var(--w) - var(--thumb) - var(--p)*2))}
+    .switch:has(input:checked) .track{background:color-mix(in oklab,var(--primary),black 14%);border-color:color-mix(in oklab,var(--primary),black 20%)}
+    .switch:has(input:checked) .icon.sun{opacity:.35}
+    .switch:has(input:checked) .icon.moon{opacity:.9}
+    .switch:focus-within .track{outline:2px solid color-mix(in oklab,var(--primary),white 40%);outline-offset:2px}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:72px 0 28px}
+    .kick{display:inline-flex;align-items:center;gap:10px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:var(--surface);font-weight:700;font-size:12px}
+    .h1{font-size:clamp(32px,5vw,56px);line-height:1.06;margin:14px 0;font-weight:800;letter-spacing:-.6px}
+    .lead{font-size:clamp(16px,2.5vw,18px);color:var(--ink-soft)}
+    .hero-cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+    .btn{display:inline-flex;gap:10px;align-items:center;padding:12px 16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--ink);font-weight:800}
+    .btn.primary{background:var(--primary);color:#fff;border-color:transparent}
+    .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+    .hero-card{border:1px solid var(--border);background:radial-gradient(1200px 600px at 10% 10%,color-mix(in oklab,var(--surface),var(--primary) 6%),var(--surface));border-radius:18px;padding:14px;box-shadow:var(--shadow)}
+    /* ให้ภาพ/วิดีโอ “ครอบเต็มกรอบ” แล้วครอปส่วนเกิน */
+.hero-media img,
+.hero-media video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+    .grid{display:grid;gap:18px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .metric{border:1px solid var(--border);border-radius:14px;padding:18px;background:var(--surface)}
+    .metric .num{font-size:28px;font-weight:900}
+    .metric .sub{color:var(--ink-soft);font-weight:700}
+
+    .section{padding:54px 0}
+    .section h2{font-size:clamp(24px,3.2vw,32px);margin:0 0 8px}
+    .muted{color:var(--ink-soft)}
+    .cases{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:22px}
+    .case{grid-column:span 6;border:1px solid var(--border);border-radius:16px;overflow:clip;background:var(--surface);display:grid;grid-template-columns:1.1fr .9fr}
+    .case .cover{position:relative;overflow:hidden}
+    .case .cover img{width:100%;height:100%;object-fit:cover}
+    .tag{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.65);color:#fff;padding:6px 10px;font-size:12px;border-radius:999px}
+    .case .body{padding:18px}
+    .case h3{margin:2px 0 6px;font-size:18px}
+    .pill{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--border);background:var(--bg);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
+
+    /* Skills Matrix */
+    .skills-matrix{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:10px}
+    .sm-card{grid-column:span 6;border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:14px}
+    .sm-card h4{margin:0 0 8px;font-size:14px;color:var(--ink-soft);letter-spacing:.2px}
+    .bar{height:8px;border-radius:999px;background:color-mix(in oklab,var(--ink),white 90%);overflow:hidden}
+    .bar>span{display:block;height:100%;background:var(--primary);border-radius:999px;transform:scaleX(0);transform-origin:left;transition:transform .6s ease}
+
+    /* Logos */
+    .logos{display:flex;gap:18px;flex-wrap:wrap;align-items:center;opacity:.85;filter:grayscale(100%)}
+    .logos img{height:28px}
+
+    /* Portfolio */
+    .filters{display:flex;gap: 10px;flex-wrap:wrap;margin-top:10px}
+    .filter-btn{border:1px solid var(--border);background:var(--surface);padding:8px 12px;border-radius:999px;font-weight:800;cursor:pointer}
+    .filter-btn.active{background:var(--ink);color:#fff}
+    .portfolio{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:16px}
+    .card{grid-column:span 6;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface);cursor:pointer;transition:transform .15s ease, box-shadow .15s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+    .card .thumb{aspect-ratio:16/9;background:#000;overflow:hidden}
+    .card .thumb img{width:100%;height:100%;object-fit:cover}
+    .modal-body video{max-width:90vw;max-height:90vh;}
+    .card .body{padding:14px}
+    .card .title{font-weight:800;margin:0 0 6px}
+    .card .meta{font-size:12px;color:var(--ink-soft)}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000}
+    .modal.open{display:flex}
+    .modal-dialog{max-width:980px;width:100%;background:var(--bg);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+    .modal-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border)}
+    .modal-body{background:#000}
+    .modal-body img, .modal-body video{width:100%;height:auto}
+    .close-btn{border:1px solid var(--border);background:var(--surface);padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:800}
+
+    /* Insights */
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
+    .kpi{border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:14px}
+    .kpi .label{font-size:12px;color:var(--ink-soft);font-weight:700}
+    .kpi .val{font-size:22px;font-weight:900}
+    .insight{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}
+    /* ถ้ามีการ์ดเดียว ให้เป็นคอลัมน์เดียว */
+    .insight:has(.insight-card:only-child){grid-template-columns:1fr;}
+    .insight-card{border:1px solid var(--border);background:var(--surface);border-radius:16px;overflow:hidden}
+    .insight-card header{padding:12px 14px;border-bottom:1px solid var(--border);font-weight:800}
+    .insight-card .pad{padding:14px}
+    .spark svg{width:100%;height:120px;display:block}
+    .legend{display:flex;gap:12px;align-items:center;font-size:12px;color:var(--ink-soft)}
+    .legend .dot{width:10px;height:10px;border-radius:50%}
+
+    /* CTA */
+    .cta{border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,color-mix(in oklab,var(--surface),var(--primary) 6%),var(--surface));padding:28px;text-align:center}
+
+    footer{padding:36px 0;color:var(--ink-soft);border-top:1px solid var(--border)}
+    @media (max-width:980px){.hero{grid-template-columns:1fr;gap:20px}.case{grid-template-columns:1fr;grid-column:span 12}.cols-3{grid-template-columns:1fr 1fr}.sm-card{grid-column:span 12}.card{grid-column:span 12}.kpis{grid-template-columns:1fr 1fr}.insight{grid-template-columns:1fr}}
+    @media (max-width:640px){.cols-3{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav" role="navigation" aria-label="Primary">
+    <div class="brand"><h1>Pisanu</h1></div>
+    <div class="links">
+      <a href="#insights"><span data-i18n="nav_insights">Insights</span></a>
+      <a href="#results"><span data-i18n="nav_results">Results</span></a>
+      <a href="#experience"><span data-i18n="nav_experience">Experience</span></a>
+      <a href="#portfolio"><span data-i18n="nav_portfolio">Portfolio</span></a>
+      <a href="#contact"><span data-i18n="nav_contact">Contact</span></a>
+      <div class="seg" id="langSwitch" role="group" aria-label="Language switcher">
+        <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+        <button type="button" data-lang="th" aria-pressed="false">TH</button>
+      </div>
+      <label class="switch" id="modeToggle" aria-label="Toggle dark mode">
+        <input type="checkbox" id="modeCheckbox" />
+        <span class="track"></span>
+        <span class="thumb"></span>
+        <span class="icon sun" aria-hidden="true">☀️</span>
+        <span class="icon moon" aria-hidden="true">🌙</span>
+      </label>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div>
+      <h2 class="h1" data-i18n="hero_h">Pisanu Udomlapsakul</h2>
+      <p class="lead" data-i18n="hero_sub">Performance-driven Paid Media Lead with 2+ years across Meta, TikTok, and Google. Blending creative storytelling with data to drive business outcomes.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="assets/CV_Pisanu.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> <span data-i18n="cta_resume">Resume</span></a>
+        <a class="btn" href="#contact"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="cta_contact">Let’s talk</span></a>
+      </div>
+      <div class="grid cols-3" style="margin-top:24px" aria-label="Key metrics">
+        <div class="metric"><div class="num"><span class="counter" data-target="8" data-suffix="×">0</span></div><div class="sub" data-i18n="m1">Team ROAS (max)</div></div>
+        <div class="metric"><div class="num"><span class="counter" data-target="32" data-prefix="-" data-suffix="%">0</span></div><div class="sub" data-i18n="m2">CPA Reduction</div></div>
+        <div class="metric"><div class="num"><span class="counter" data-target="5">0</span></div><div class="sub" data-i18n="m3">Team Members Coached</div></div>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Featured">
+      <div class="hero-media">
+        <img src="assets/hero.jpg" alt="Pisanu portrait"/>
+      </div>
+    </aside>
+  </section>
+
+  <!-- INSIGHTS / DATA -->
+  <section id="insights" class="section">
+    <h2 data-i18n="insights_h">Data & Insights</h2>
+    <p class="muted" data-i18n="insights_p">From data collection to decision-making — not just running ads, but optimizing with evidence.</p>
+
+    <div class="kpis" aria-label="Key KPIs">
+      <div class="kpi"><div class="label" data-i18n="kpi_revenue">Blended Revenue (90d)</div><div class="val">+62%</div></div>
+      <div class="kpi"><div class="label" data-i18n="kpi_cac">Avg. CAC (30d)</div><div class="val">−28%</div></div>
+      <div class="kpi"><div class="label" data-i18n="kpi_roas">ROAS (peak)</div><div class="val">8×</div></div>
+      <div class="kpi"><div class="label" data-i18n="kpi_ctr">CTR (Reels/Short)</div><div class="val">+58%</div></div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-card">
+        <header data-i18n="insight_ga4_h">GA4 / Looker Snapshot</header>
+        <div class="pad">
+          <img src="assets/ga4-snapshot.png" alt="GA4/Looker dashboard snapshot (placeholder)">
+          <p class="muted" data-i18n="insight_ga4_p">
+            Attribution, cohort LTV, and source/medium performance — dashboards I built for weekly exec reviews.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="results" class="section">
+    <h2 data-i18n="ach_h">Achievements</h2>
+    <ul>
+      <li data-i18n="ach1">Increased team ROAS up to 8× through segmentation and automation.</li>
+      <li data-i18n="ach2">Reduced overall CPA by 32% via full-funnel optimization and budget reallocation.</li>
+      <li data-i18n="ach3">Managed and coached a 5-member Paid Media team handling 30+ campaigns monthly.</li>
+      <li data-i18n="ach4">Improved lead quality by 40% via funnel analysis and persona-based retargeting.</li>
+      <li data-i18n="ach5">Enhanced attribution accuracy by 60% through GA4 and UTM frameworks.</li>
+    </ul>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <h2 data-i18n="exp_h">Experience</h2>
+    <div class="timeline">
+      <div class="role">
+        <h3>Paid Media Lead · RNP EXPRESS Co., Ltd.</h3>
+        <div class="meta">May 2024 — Present</div>
+        <ul>
+          <li data-i18n="exp1_1">Managed full-funnel campaigns across Meta, TikTok, Google; 30+ campaigns monthly in 11 countries.</li>
+          <li data-i18n="exp1_2">Built Paid Media Data Ops (SOPs, standards, dashboards in Looker Studio & Sheets).</li>
+          <li data-i18n="exp1_3">Coached a 5-member team; cross-campaign learning and performance reviews (+35% efficiency).</li>
+          <li data-i18n="exp1_4">Raised CTR +58% via A/B hook testing, format rotation, trend triggering.</li>
+          <li data-i18n="exp1_5">Designed lookalike & retargeting frameworks (CVR +55%).</li>
+          <li data-i18n="exp1_6">Launched seasonal promos (5.5, Black Friday, New Year) driving lead growth.</li>
+          <li data-i18n="exp1_7">Bi-weekly performance consulting to executives; retention insights.</li>
+          <li data-i18n="exp1_8">Resolved ad crises within 48h (policy, pacing, underperformance) to protect ROI.</li>
+        </ul>
+      </div>
+      <div class="role">
+        <h3>Senior Digital Marketing Strategy Officer · RNP EXPRESS Co., Ltd.</h3>
+        <div class="meta">Sep 2023 — May 2024</div>
+        <ul>
+          <li data-i18n="exp2_1">Planned cross-channel promotions across Meta, TikTok, Google.</li>
+          <li data-i18n="exp2_2">Built real-time dashboards for customer & behavior analysis.</li>
+          <li data-i18n="exp2_3">Created funnel-based comms frameworks; 3× engagement.</li>
+          <li data-i18n="exp2_4">End-to-end strategies lifted lead→conversion rate 2.3×.</li>
+          <li data-i18n="exp2_5">Translated strategy into measurement frameworks for team and execs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS MATRIX + CATEGORIES -->
+  <section class="section" id="skills">
+    <h2 data-i18n="skills_h">Key Skills</h2>
+
+    <div class="skills-matrix" aria-label="Skills matrix">
+      <div class="sm-card">
+        <h4 data-i18n="skills_cat_platforms">Platforms</h4>
+        <div class="chips"><span class="chip" data-i18n="s_plat1">Meta Ads</span>,<span class="chip" data-i18n="s_plat2">TikTok Ads</span>,<span class="chip" data-i18n="s_plat3">Google Ads</span></div>
+        <div class="bar" aria-label="Proficiency"><span style="width:92%"></span></div>
+      </div>
+      <div class="sm-card">
+        <h4 data-i18n="skills_cat_analytics">Analytics & Measurement</h4>
+        <div class="chips"><span class="chip" data-i18n="s_an1">GA4</span>,<span class="chip" data-i18n="s_an3">Looker Studio</span>,<span class="chip" data-i18n="s_an2">UTM Tracking</span></div>
+        <div class="bar"><span style="width:88%"></span></div>
+      </div>
+      <div class="sm-card">
+        <h4 data-i18n="skills_cat_creative">Creative & Experimentation</h4>
+        <div class="chips"><span class="chip" data-i18n="s_cr1">Creative Briefing</span>,<span class="chip" data-i18n="s_cr2">Angle/Hook Testing</span>,<span class="chip" data-i18n="s_an5">A/B Testing</span></div>
+        <div class="bar"><span style="width:86%"></span></div>
+      </div>
+      <div class="sm-card">
+        <h4 data-i18n="skills_cat_lead">Leadership & Ops</h4>
+        <div class="chips"><span class="chip" data-i18n="s_lead1">Team Coaching</span>,<span class="chip" data-i18n="s_lead5">SOPs & Playbooks</span>,<span class="chip" data-i18n="s_lead3">Task Delegation</span></div>
+        <div class="bar"><span style="width:84%"></span></div>
+      </div>
+    </div>
+
+    <h3 class="muted" style="margin-top:18px" data-i18n="play_h">Signature Playbooks</h3>
+    <ul>
+      <li data-i18n="play1">Advantage+ Shopping frameworks with margin-based audience design.</li>
+      <li data-i18n="play2">Hook/Angle taxonomy with weekly creative reviews.</li>
+      <li data-i18n="play3">Full-funnel measurement with GA4 + Looker dashboards.</li>
+      <li data-i18n="play4">Lead quality ops via CRM sequencing.</li>
+    </ul>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section">
+    <h2 data-i18n="portfolio_h">Selected Portfolio</h2>
+
+    <div class="filters" role="tablist" aria-label="Portfolio filters">
+      <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" data-i18n="filter_all">All</button>
+      <button class="filter-btn" data-filter="Ads" role="tab" aria-selected="false" data-i18n="filter_ecom">advertising</button>
+      <button class="filter-btn" data-filter="logistics" role="tab" aria-selected="false" data-i18n="filter_logistics">Analytics & Measurement</button>
+      <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false" data-i18n="filter_branding">Content</button>
+    </div>
+
+    <div class="portfolio" aria-live="polite">
+      <!-- Card 1 -->
+      <article class="card" tabindex="0" data-tags="Ads" data-type="image" data-src="assets/case-1.png" aria-label="Beauty DTC Launch">
+        <div class="thumb"><img src="assets/case-1.png" alt="Beauty DTC Launch thumbnail"></div>
+        <div class="body">
+          <h3 class="title" data-i18n="p1_title">Google Ads</h3>
+          <div class="meta" data-i18n="p1_meta">CPC -30%, CTR +20%, CVR +30%, CPA ..., ROAS 7×</div>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="card" tabindex="0" data-tags="Ads" data-type="image" data-src="assets/case-2.png" aria-label="Omnichannel Retail Scale">
+        <div class="thumb"><img src="assets/case-2.png" alt="Omnichannel Retail Scale thumbnail"></div>
+        <div class="body">
+          <h3 class="title" data-i18n="p2_title">Facebook Ads</h3>
+          <div class="meta" data-i18n="p2_meta">dashboard performance facebook ads</div>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="card" tabindex="0" data-tags="logistics" data-type="image" data-src="assets/case-3.png" aria-label="Cross-Border Logistics Growth">
+        <div class="thumb"><img src="assets/case-3.png" alt="Cross-border Logistics thumbnail"></div>
+        <div class="body">
+          <h3 class="title" data-i18n="p3_title">Google Sheets</h3>
+          <div class="meta" data-i18n="p3_meta">Raw data analysis and visualization (Pivot, XLOOKUP, IMPORT, QUERY, ARRAYFORMULA, SUMIFS, COUNTIFS, etc.)</div>
+        </div>
+      </article>
+      <!-- Card 4 -->
+      <article class="card" tabindex="0" data-tags="logistics" data-type="image" data-src="assets/case-4.png" aria-label="Cross-Border Logistics Growth">
+        <div class="thumb"><img src="assets/case-4.png" alt="Cross-border Logistics thumbnail"></div>
+        <div class="body">
+          <h3 class="title" data-i18n="p4_title">Looker Studio</h3>
+          <div class="meta" data-i18n="p4_meta">Dashboard for presenting to service providers</div>
+        </div>
+      </article>
+      <!-- Card 5 vdo-->
+      <article class="card" tabindex="0" data-tags="branding" data-type="video" data-src="assets/case-5.mp4" aria-label="Global Logistics Video">
+        <div class="thumb"><video src="assets/case-5.mp4" alt="Looker Studio"></video></div>
+        <div class="body">
+          <h3 class="title" data-i18n="p5_title">VDO Ads</h3>
+          <div class="meta" data-i18n="p5_meta">Invites target audiences to engage with ads</div>
+        </div>
+      </article>
+      <!-- Card 6 vdo-->
+      <article class="card" tabindex="0" data-tags="branding" data-type="video" data-src="assets/case-6.mp4" aria-label="Global Logistics Video">
+        <div class="thumb"><video src="assets/case-6.mp4" alt="Looker Studio"></video></div>
+        <div class="body">
+          <h3 class="title" data-i18n="p6_title">VDO Awareness</h3>
+          <div class="meta" data-i18n="p6_meta">Creates awareness and builds credibility</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="section">
+    <div class="cta" role="region" aria-label="Contact">
+      <h2 data-i18n="cta_h_strong">Looking for measurable growth? Let’s talk.</h2>
+      <p class="muted" data-i18n="cta_p_strong">Open to Paid Media Lead / Performance roles · Bangkok-based · Hybrid/Remote.</p>
+      <div class="hero-cta" style="justify-content:center">
+        <a class="btn primary" href="mailto:Pisanu.u2000@gmail.com"><i class="fa-solid fa-envelope"></i> <span data-i18n="cta_email">Email</span></a>
+        <a class="btn" href="assets/CV_Pisanu.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> <span data-i18n="cta_resume">Resume</span></a>
+        <a class="btn" href="https://line.me/ti/p/~yoser" target="_blank" rel="noopener"><i class="fa-brands fa-line"></i> <span data-i18n="cta_line">LINE</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+    <small>© <span id="y"></span> Pisanu Udomlapsakul</small>
+    <div style="display:flex;gap:12px;align-items:center">
+      <a href="https://www.facebook.com/yo.pisakul" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.tiktok.com/@yo_pisakul" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/yo_pisakul/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="lightbox" aria-hidden="true" aria-labelledby="lb-title" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <strong id="lb-title" data-i18n="modal_preview">Preview</strong>
+      <button class="close-btn" id="lb-close" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="lb-body"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+'use strict';
+// i18n dictionaries
+const i18n={
+  en:{
+    hero_h:'Pisanu Udomlapsakul',
+    hero_sub:'Performance-driven Paid Media Lead with 2+ years across global markets. Skilled in Meta, TikTok, Google; combining creative storytelling with data-driven insights.',
+    cta_resume:'Resume',cta_contact:"Let's talk",
+    portfolio_h:'Selected Portfolio',
+    filter_all:'All', filter_ecom:'advertising', filter_logistics:'Analytics & Measurement', filter_branding:'Content',
+    insights_h:'Data & Insights',
+    insights_p:'From data collection to decision-making — not just running ads, but optimizing with evidence.',
+    kpi_revenue:'Blended Revenue (90d)', kpi_cac:'Avg. CAC (30d)', kpi_roas:'ROAS (peak)', kpi_ctr:'CTR (Reels/Short)',
+    chart_rev_label:'Revenue', chart_cac_label:'CAC',
+    ach_h:'Achievements',
+    ach1:'Increased team ROAS up to 8× through segmentation and automation.',
+    ach2:'Reduced overall CPA by 32% via full-funnel optimization and budget reallocation.',
+    ach3:'Managed and coached a 5-member Paid Media team executing 30+ campaigns monthly.',
+    ach4:'Improved lead quality by 40% through deep funnel analysis and persona-based retargeting.',
+    ach5:'Enhanced attribution accuracy by 60% through GA4 and UTM implementation.',
+    exp_h:'Experience',
+    skills_h:'Key Skills',
+    skills_cat_lead:'Leadership & Ops',
+    skills_cat_platforms:'Platforms',
+    skills_cat_analytics:'Analytics & Measurement',
+    skills_cat_creative:'Creative & Experimentation',
+    skills_cat_tools:'Productivity & Tools',
+    s_lead1:'Team Coaching',s_lead2:'Campaign Review',s_lead3:'Task Delegation',s_lead4:'Onboarding',s_lead5:'SOPs & Playbooks',
+    s_plat1:'Meta Ads',s_plat2:'TikTok Ads',s_plat3:'Google Ads',s_plat4:'Meta Business Suite',
+    s_an1:'GA4',s_an2:'UTM Tracking',s_an3:'Looker Studio',s_an4:'Full-funnel Planning',s_an5:'A/B Testing',s_an6:'Forecasting',
+    s_cr1:'Creative Briefing',s_cr2:'Angle/Hook Testing',s_cr3:'Storytelling',s_cr4:'Content-Performance Alignment',
+    s_tool1:'Trello',s_tool2:'Notion',s_tool3:'Excel',s_tool4:'Google Sheets',s_tool5:'AI Tools',
+    play_h:'Signature Playbooks',
+    play1:'Advantage+ Shopping frameworks with margin-based audience design.',
+    play2:'Hook/Angle taxonomy with weekly creative reviews.',
+    play3:'Full-funnel measurement with GA4 + Looker dashboards.',
+    play4:'Lead quality ops via CRM sequencing.',
+    contact_h:'Contact',
+    cta_h_strong:'Looking for measurable growth? Let’s talk.',
+    cta_p_strong:'Open to Paid Media Lead / Performance roles · Bangkok-based · Hybrid/Remote.',
+    m1:'Team ROAS (max)',m2:'CPA Reduction',m3:'Team Members Coached',
+
+    // ---- เพิ่มใน i18n.en ----
+exp1_title: 'Paid Media Lead · RNP EXPRESS Co., Ltd.',
+exp1_date: 'May 2024 — Present',
+exp2_title: 'Senior Digital Marketing Strategy Officer · RNP EXPRESS Co., Ltd.',
+exp2_date: 'Sep 2023 — May 2024',
+
+exp1_1: 'Managed full-funnel campaigns across Meta, TikTok, Google; 30+ campaigns monthly in 11 countries.',
+exp1_2: 'Built Paid Media Data Ops (SOPs, standards, dashboards in Looker Studio & Sheets).',
+exp1_3: 'Coached a 5-member team; cross-campaign learning and performance reviews (+35% efficiency).',
+exp1_4: 'Raised CTR +58% via A/B hook testing, format rotation, trend triggering.',
+exp1_5: 'Designed lookalike & retargeting frameworks (CVR +55%).',
+exp1_6: 'Launched seasonal promos (5.5, Black Friday, New Year) driving lead growth.',
+exp1_7: 'Bi-weekly performance consulting to executives; retention insights.',
+exp1_8: 'Resolved ad crises within 48h (policy, pacing, underperformance) to protect ROI.',
+
+exp2_1: 'Planned cross-channel promotions across Meta, TikTok, Google.',
+exp2_2: 'Built real-time dashboards for customer & behavior analysis.',
+exp2_3: 'Created funnel-based comms frameworks; 3× engagement.',
+exp2_4: 'End-to-end strategies lifted lead→conversion rate 2.3×.',
+exp2_5: 'Translated strategy into measurement frameworks for team and execs.',
+
+    
+
+    /* NEW */
+    nav_insights:'Insights', nav_results:'Results', nav_experience:'Experience', nav_portfolio:'Portfolio', nav_contact:'Contact',
+    insight_ga4_h:'GA4 / Looker Snapshot',
+    insight_ga4_p:'Attribution, cohort LTV, and source/medium performance — dashboards I built for weekly exec reviews.',
+    cta_email:'Email', cta_line:'LINE',
+    modal_preview:'Preview',
+    p1_title:'Google Ads',
+    p1_meta:'CPC -30%, CTR +20%, CVR +30%, CPA ..., ROAS 7×',
+    p2_title:'facebook ads',
+    p2_meta:'dashboard performance facebook ads',
+    p3_title:'Google Sheets',
+    p3_meta:'Raw data analysis and visualization (Pivot, XLOOKUP, IMPORT, QUERY, ARRAYFORMULA, SUMIFS, COUNTIFS, etc.)',
+    p4_title:'Looker Studio',
+    p4_meta:'Dashboard for presenting to service providers',
+    p5_title:'VDO Ads',
+    p5_meta:'Invites target audiences to engage with ads',
+    p6_title:'VDO Awareness',
+    p6_meta:'Creates awareness and builds credibility'
+  },
+  th:{
+    hero_h:'พิษณุ อุดมลาภสกุล',
+    hero_sub:'หัวหน้าฝ่ายโฆษณาเชิงประสิทธิภาพ (Paid Media) ประสบการณ์ 2+ ปี ครอบคลุม Meta, TikTok, Google ผสานครีเอทีฟกับข้อมูลเพื่อผลลัพธ์ที่วัดได้',
+    cta_resume:'ดาวน์โหลดเรซูเม่',cta_contact:'มาคุยกัน',
+    portfolio_h:'พอร์ตโฟลิโอคัดสรร',
+    filter_all:'ทั้งหมด', filter_ecom:'แอดโฆษณา', filter_logistics:'การวิเคราะห์ & การวัดผล', filter_branding:'คอนเทนต์',
+    insights_h:'ข้อมูล & อินไซต์',
+    insights_p:'ตั้งแต่การเก็บข้อมูลไปจนถึงการตัดสินใจ — ไม่ใช่แค่ยิงแอด แต่ปรับแต่งด้วยหลักฐาน',
+    kpi_revenue:'รายได้รวม (90 วัน)', kpi_cac:'CAC เฉลี่ย (30 วัน)', kpi_roas:'ROAS สูงสุด', kpi_ctr:'CTR (Reels/Short)',
+    chart_rev_label:'รายได้', chart_cac_label:'CAC',
+    ach_h:'ผลงานเด่น',
+    ach1:'เพิ่ม ROAS ของทีมได้สูงสุด 8× ด้วยการแบ่งเซกเมนต์และทำอัตโนมัติ',
+    ach2:'ลด CAC เฉลี่ย 32% ด้วยการจัดโครงสร้าง Full-funnel และบริหารงบ',
+    ach3:'บริหารและโค้ชทีม Paid Media 5 คน ดูแล 30+ แคมเปญต่อเดือน',
+    ach4:'เพิ่มคุณภาพลีด 40% จากการวิเคราะห์ Funnel และ Retarget ตาม Persona',
+    ach5:'เพิ่มความแม่นยำของ Attribution 60% ผ่าน GA4 และมาตรฐาน UTM',
+    exp_h:'ประสบการณ์',
+    skills_h:'ทักษะหลัก',
+    skills_cat_lead:'ภาวะผู้นำ & การปฏิบัติการ',
+    skills_cat_platforms:'แพลตฟอร์ม',
+    skills_cat_analytics:'การวิเคราะห์ & การวัดผล',
+    skills_cat_creative:'ครีเอทีฟ & การทดลอง',
+    skills_cat_tools:'เครื่องมือ & ผลิตภาพ',
+    s_lead1:'การโค้ชทีม',s_lead2:'รีวิวแคมเปญ',s_lead3:'มอบหมายงาน',s_lead4:'Onboarding ทีม',s_lead5:'มาตรฐานงาน/SOP',
+    s_plat1:'โฆษณา Meta',s_plat2:'โฆษณา TikTok',s_plat3:'โฆษณา Google',s_plat4:'Meta Business Suite',
+    s_an1:'GA4',s_an2:'การติดแท็ก UTM',s_an3:'Looker Studio',s_an4:'วางแผน Full-funnel',s_an5:'A/B Testing',s_an6:'การพยากรณ์',
+    s_cr1:'เขียนบรีฟครีเอทีฟ',s_cr2:'ทดสอบ Hook/Angle',s_cr3:'การเล่าเรื่อง',s_cr4:'เชื่อมคอนเทนต์กับผลลัพธ์',
+    s_tool1:'Trello',s_tool2:'Notion',s_tool3:'Excel',s_tool4:'Google Sheets',s_tool5:'เครื่องมือ AI',
+    play_h:'เพลย์บุ๊กสำคัญ',
+    play1:'กรอบงาน Advantage+ Shopping จับคู่กับการออกแบบกลุ่มเป้าหมายตามมาร์จิ้น',
+    play2:'Hook/Angle taxonomy พร้อมรีวิวครีเอทีฟรายสัปดาห์',
+    play3:'การวัดผลแบบ Full-funnel ด้วย GA4 + Looker Dashboard',
+    play4:'ยกระดับคุณภาพลีดด้วยลำดับ CRM',
+    contact_h:'ติดต่อ',
+    cta_h_strong:'อยากเติบโตแบบวัดผลได้? มาคุยกัน',
+    cta_p_strong:'เปิดรับบทบาท Paid Media Lead / Performance · กรุงเทพฯ · Hybrid/Remote',
+    m1:'ROAS สูงสุดของทีม',m2:'ลด CPA',m3:'สมาชิกทีมที่โค้ช',
+    // ---- เพิ่มใน i18n.th ----
+exp1_title: 'หัวหน้าฝ่ายโฆษณาแบบชำระเงิน (Paid Media Lead) · RNP EXPRESS Co., Ltd.',
+exp1_date: 'พ.ค. 2024 — ปัจจุบัน',
+exp2_title: 'Senior Digital Marketing Strategy Officer · RNP EXPRESS Co., Ltd.',
+exp2_date: 'ก.ย. 2023 — พ.ค. 2024',
+
+exp1_1: 'บริหารแคมเปญแบบ Full-funnel ครอบคลุม Meta, TikTok, Google; 30+ แคมเปญต่อเดือนใน 11 ประเทศ',
+exp1_2: 'วางโครงสร้าง Data Ops ด้าน Paid Media (SOP มาตรฐาน แดชบอร์ดใน Looker Studio และ Sheets)',
+exp1_3: 'โค้ชทีม 5 คน สร้างการเรียนรู้ข้ามแคมเปญและรีวิวผลงาน (ประสิทธิภาพ +35%)',
+exp1_4: 'ดัน CTR +58% ด้วยการทดสอบ A/B ด้าน Hook หมุนเวียนรูปแบบ และเกาะเทรนด์',
+exp1_5: 'ออกแบบกรอบงาน Lookalike และ Retargeting (CVR +55%)',
+exp1_6: 'ปล่อยโปรโมชันตามฤดูกาล (5.5, Black Friday, ปีใหม่) กระตุ้นการเติบโตของลีด',
+exp1_7: 'เป็นที่ปรึกษาผลงานรายสองสัปดาห์ให้ผู้บริหาร พร้อมอินไซต์ด้านรีเทนชัน',
+exp1_8: 'แก้ปัญหาแคมเปญฉุกเฉินภายใน 48 ชม. (นโยบาย จังหวะการจ่าย ผลงานต่ำ) เพื่อปกป้อง ROI',
+
+exp2_1: 'วางแผนโปรโมชันข้ามช่องทางบน Meta, TikTok, Google',
+exp2_2: 'สร้างแดชบอร์ดเรียลไทม์สำหรับวิเคราะห์ลูกค้าและพฤติกรรม',
+exp2_3: 'พัฒนากรอบงานสื่อสารตาม Funnel เพิ่มการมีส่วนร่วม 3×',
+exp2_4: 'กลยุทธ์แบบ End-to-end ยกระดับอัตรา Lead→Conversion 2.3×',
+exp2_5: 'แปลงกลยุทธ์เป็นกรอบการวัดผลสำหรับทีมและผู้บริหาร',
+
+
+    /* NEW */
+    nav_insights:'อินไซต์', nav_results:'ผลงาน', nav_experience:'ประสบการณ์', nav_portfolio:'พอร์ตโฟลิโอ', nav_contact:'ติดต่อ',
+    insight_ga4_h:'สแนปช็อต GA4 / Looker',
+    insight_ga4_p:'แดชบอร์ดสำหรับรีวิวผู้บริหารรายสัปดาห์: Attribution, Cohort LTV และประสิทธิภาพตามแหล่งที่มา/มีเดีย',
+    cta_email:'อีเมล', cta_line:'ไลน์',
+    modal_preview:'พรีวิว',
+    p1_title:'โฆษณา Google',
+    p1_meta:'CPC -30%, CTR +20%, CVR +30%, ROAS 7×',
+    p2_title:'โฆษณา Facebook',
+    p2_meta:'กราฟประสิทธิภาพ Facebook Ads',
+    p3_title:'Google Sheets',
+    p3_meta:'วิเคราะห์/ทำภาพข้อมูลจากดิบ (Pivot, XLOOKUP, IMPORT, QUERY, ARRAYFORMULA, SUMIFS, COUNTIFS ฯลฯ)',
+    p4_title:'Looker Studio',
+    p4_meta:'แดชบอร์ดสำหรับพรีเซนต์ต่อผู้ให้บริการ/พาร์ทเนอร์',
+    p5_title:'วิดีโอโฆษณา',
+    p5_meta:'กระตุ้นให้กลุ่มเป้าหมายมีส่วนร่วมกับแอด',
+    p6_title:'วิดีโอสร้างการรับรู้',
+    p6_meta:'สร้างการจดจำและความน่าเชื่อถือของแบรนด์'
+  }
+};
+
+function applyLang(l){
+  const dict=i18n[l]||i18n.en;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n'); if(dict[k]) el.textContent=dict[k];
+  });
+  try { localStorage.setItem('lang',l); } catch(e){}
+  document.documentElement.lang=l;
+  const segEl=document.getElementById('langSwitch');
+  segEl?.querySelectorAll('button').forEach(b=>{
+    const act=b.dataset.lang===l; b.classList.toggle('active',act); b.setAttribute('aria-pressed',String(act));
+  });
+  document.title=l==='th'? 'พิษณุ อุดมลาภสกุล · Paid Media Lead' : 'Pisanu Udomlapsakul · Paid Media Lead';
+}
+
+// footer year
+const yEl=document.getElementById('y'); if(yEl) yEl.textContent=new Date().getFullYear();
+
+// dark mode
+const modeCheckbox=document.getElementById('modeCheckbox');
+const prefersDark=window.matchMedia('(prefers-color-scheme: dark)');
+const savedMode=localStorage.getItem('mode');
+const startDark=(savedMode==='dark')||(!savedMode&&prefersDark.matches);
+if(startDark) document.body.classList.add('dark');
+if(modeCheckbox) modeCheckbox.checked=document.body.classList.contains('dark');
+
+function updateMode(isDark){
+  document.body.classList.toggle('dark',isDark);
+  try { localStorage.setItem('mode', isDark ? 'dark' : 'light'); } catch(e){}
+  if(modeCheckbox) modeCheckbox.checked=isDark;
+}
+
+modeCheckbox?.addEventListener('change',()=>updateMode(modeCheckbox.checked));
+prefersDark.addEventListener?.('change',(e)=>{ if(!localStorage.getItem('mode')) updateMode(e.matches); });
+
+// language segmented control
+const langSeg=document.getElementById('langSwitch');
+langSeg?.addEventListener('click',(e)=>{
+  const btn=e.target.closest('button[data-lang]'); if(!btn) return; applyLang(btn.dataset.lang);
+});
+
+// Init language
+applyLang(localStorage.getItem('lang')||'en');
+
+// ===== Count-up metrics =====
+const counters=[...document.querySelectorAll('.counter')];
+const ease=(t)=>1-Math.pow(1-t,3);
+function animateCount(el){
+  const target=Number(el.dataset.target||0);
+  const prefix=el.dataset.prefix||''; const suffix=el.dataset.suffix||'';
+  const dur=900; let start=null;
+  function step(ts){
+    if(!start) start=ts;
+    const p=Math.min(1,(ts-start)/dur);
+    const cur=Math.round(ease(p)*target);
+    el.textContent=prefix+cur+suffix;
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const io=new IntersectionObserver((ents)=>{
+  ents.forEach(e=>{ if(e.isIntersecting){ animateCount(e.target); io.unobserve(e.target);} });
+},{threshold:0.6});
+counters.forEach(el=>io.observe(el));
+
+// Animate skill bars on view
+const bars=[...document.querySelectorAll('.bar>span')];
+const ioBars=new IntersectionObserver((ents)=>{
+  ents.forEach(e=>{ if(e.isIntersecting){ e.target.style.transform='scaleX(1)'; ioBars.unobserve(e.target);} });
+},{threshold:0.4});
+bars.forEach(b=>ioBars.observe(b));
+
+// ===== Portfolio filter =====
+const filterBtns=[...document.querySelectorAll('.filter-btn')];
+const cards=[...document.querySelectorAll('.portfolio .card')];
+function applyFilter(key){
+  filterBtns.forEach(b=>{const act=b.dataset.filter===key; b.classList.toggle('active',act); b.setAttribute('aria-selected',String(act));});
+  cards.forEach(c=>{
+    if(key==='all'){ c.style.display='block'; return; }
+    const tags=(c.getAttribute('data-tags')||'').split(/\s+/);
+    c.style.display = tags.includes(key) ? 'block' : 'none';
+  });
+}
+filterBtns.forEach(b=>b.addEventListener('click',()=>applyFilter(b.dataset.filter)));
+
+// ===== Lightbox (modal) =====
+const modal=document.getElementById('lightbox');
+const modalBody=document.getElementById('lb-body');
+const btnClose=document.getElementById('lb-close');
+let lastFocus=null;
+
+function openModal(content){
+  modalBody.innerHTML='';
+  modalBody.appendChild(content);
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  lastFocus=document.activeElement; btnClose.focus();
+}
+function closeModal(){
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  modalBody.innerHTML='';
+  if(lastFocus) lastFocus.focus();
+}
+btnClose.addEventListener('click',closeModal);
+modal.addEventListener('click',(e)=>{ if(e.target===modal) closeModal(); });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
+
+cards.forEach(c=>{
+  function build(){
+    const type=c.getAttribute('data-type');
+    const src=c.getAttribute('data-src');
+    if(type==='video'){
+      const v=document.createElement('video'); v.controls=true; v.src=src; v.setAttribute('playsinline',''); v.setAttribute('autoplay','');
+      return v;
+    }
+    const img=new Image(); img.src=src; img.alt=c.getAttribute('aria-label')||'Preview';
+    return img;
+  }
+  c.addEventListener('click',()=>openModal(build()));
+  c.addEventListener('keydown',(e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(build()); }});
+});
+
+// Self-tests (console) — ปรับให้ตรงกับ data-filter จริง
+try{
+  console.group('[Self-tests]');
+  const before=document.body.classList.contains('dark');
+  updateMode(!before); console.assert(document.body.classList.contains('dark')===!before,'Dark mode toggles');
+  updateMode(before);
+  applyFilter('Ads'); console.assert(cards.filter(c=>c.style.display!=='none').every(c=>c.getAttribute('data-tags').includes('Ads')),'Filter Ads');
+  applyFilter('all'); console.assert(cards.every(c=>c.style.display==='block'),'Filter all');
+  applyLang('th'); console.assert(document.documentElement.lang==='th','Lang=TH');
+  applyLang('en'); console.assert(document.documentElement.lang==='en','Lang=EN');
+  console.groupEnd();
+}catch(err){console.warn('Self-tests issue',err)}
+})();
+</script>
+
+</body>
+</html>
