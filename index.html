@@ -18,14 +18,19 @@
     a{color:inherit;text-decoration:none}
     img,video{max-width:100%;display:block}
 
+    /* Header */
     header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(14px);background:color-mix(in oklab,var(--bg),transparent 10%);border-bottom:1px solid var(--border)}
     .wrap{max-width:1120px;margin-inline:auto;padding:0 20px}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
     .brand{display:flex;gap:10px;align-items:center}
     .brand h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.4px}
-    .links{display:flex;gap:18px;align-items:center}
-    .links a{font-weight:600;opacity:.88}
-    .links a:hover{color:var(--primary)}
+
+    /* New: links + tabs layout */
+    .links{display:flex;align-items:center;gap:12px;min-width:0}
+    .tabs{display:flex;gap:10px;flex:1;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tabs a{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font-weight:800}
+    .tabs a:hover{color:var(--primary)}
 
     /* ให้ทุก section เลื่อนแล้วไม่ชน header */
     section{scroll-margin-top:90px;}
@@ -60,14 +65,8 @@
     .btn.primary{background:var(--primary);color:#fff;border-color:transparent}
     .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
     .hero-card{border:1px solid var(--border);background:radial-gradient(1200px 600px at 10% 10%,color-mix(in oklab,var(--surface),var(--primary) 6%),var(--surface));border-radius:18px;padding:14px;box-shadow:var(--shadow)}
-    /* ให้ภาพ/วิดีโอ “ครอบเต็มกรอบ” แล้วครอปส่วนเกิน */
-.hero-media img,
-.hero-media video{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
+    .hero-media{border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:#000}
+    .hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;object-position:center}
 
     .grid{display:grid;gap:18px}
     .cols-3{grid-template-columns:repeat(3,1fr)}
@@ -86,17 +85,20 @@
     .case .body{padding:18px}
     .case h3{margin:2px 0 6px;font-size:18px}
     .pill{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--border);background:var(--bg);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
-
-    /* Skills Matrix */
+    
+    /* Insights */
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
+    .kpi{border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:14px}
+    .kpi .label{font-size:12px;color:var(--ink-soft);font-weight:700}
+    .kpi .val{font-size:22px;font-weight:900}
+    .insight{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}
+    
+    /* Skills */
     .skills-matrix{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:10px}
     .sm-card{grid-column:span 6;border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:14px}
     .sm-card h4{margin:0 0 8px;font-size:14px;color:var(--ink-soft);letter-spacing:.2px}
     .bar{height:8px;border-radius:999px;background:color-mix(in oklab,var(--ink),white 90%);overflow:hidden}
     .bar>span{display:block;height:100%;background:var(--primary);border-radius:999px;transform:scaleX(0);transform-origin:left;transition:transform .6s ease}
-
-    /* Logos */
-    .logos{display:flex;gap:18px;flex-wrap:wrap;align-items:center;opacity:.85;filter:grayscale(100%)}
-    .logos img{height:28px}
 
     /* Portfolio */
     .filters{display:flex;gap: 10px;flex-wrap:wrap;margin-top:10px}
@@ -106,7 +108,7 @@
     .card{grid-column:span 6;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface);cursor:pointer;transition:transform .15s ease, box-shadow .15s ease}
     .card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
     .card .thumb{aspect-ratio:16/9;background:#000;overflow:hidden}
-    .card .thumb img{width:100%;height:100%;object-fit:cover}
+    .card .thumb img,.card .thumb video{width:100%;height:100%;object-fit:cover}
     .modal-body video{max-width:90vw;max-height:90vh;}
     .card .body{padding:14px}
     .card .title{font-weight:800;margin:0 0 6px}
@@ -121,99 +123,51 @@
     .modal-body img, .modal-body video{width:100%;height:auto}
     .close-btn{border:1px solid var(--border);background:var(--surface);padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:800}
 
-    /* Insights */
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
-    .kpi{border:1px solid var(--border);background:var(--surface);border-radius:14px;padding:14px}
-    .kpi .label{font-size:12px;color:var(--ink-soft);font-weight:700}
-    .kpi .val{font-size:22px;font-weight:900}
-    .insight{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}
-    /* ถ้ามีการ์ดเดียว ให้เป็นคอลัมน์เดียว */
-    .insight:has(.insight-card:only-child){grid-template-columns:1fr;}
-    .insight-card{border:1px solid var(--border);background:var(--surface);border-radius:16px;overflow:hidden}
-    .insight-card header{padding:12px 14px;border-bottom:1px solid var(--border);font-weight:800}
-    .insight-card .pad{padding:14px}
-    .spark svg{width:100%;height:120px;display:block}
-    .legend{display:flex;gap:12px;align-items:center;font-size:12px;color:var(--ink-soft)}
-    .legend .dot{width:10px;height:10px;border-radius:50%}
-
     /* CTA */
     .cta{border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,color-mix(in oklab,var(--surface),var(--primary) 6%),var(--surface));padding:28px;text-align:center}
 
     footer{padding:36px 0;color:var(--ink-soft);border-top:1px solid var(--border)}
-    @media (max-width:980px){.hero{grid-template-columns:1fr;gap:20px}.case{grid-template-columns:1fr;grid-column:span 12}.cols-3{grid-template-columns:1fr 1fr}.sm-card{grid-column:span 12}.card{grid-column:span 12}.kpis{grid-template-columns:1fr 1fr}.insight{grid-template-columns:1fr}}
-    @media (max-width:640px){.cols-3{grid-template-columns:1fr}}
-/* ===== Mobile nav: chip tabs + equal min width ===== */
-@media (max-width:640px){
-  /* ให้แถบหัวข้อห่อเป็นหลายบรรทัดได้ และแยกโลโก้ออกไปบรรทัดบนสุด */
-  .nav{flex-wrap:wrap; gap:8px 12px;}
-  .brand{flex-basis:100%;}
 
-  /* แถบเมนูให้เลื่อนได้ในแนวนอน */
-  header .links{
-    order:3;
-    width:100%;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    overflow-x:auto;            /* เลื่อนซ้าย-ขวา */
-    white-space:nowrap;
-    padding:6px 0 8px;
-    border-top:1px solid var(--border);
-  }
-  header .links::-webkit-scrollbar{display:none;}
-
-  /* ทำลิงก์เป็นปุ่มพิล ขนาดแตะง่าย และกว้างขั้นต่ำเท่ากัน */
-  header .links a{
-    flex:0 0 auto;              /* ไม่หด */
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:8px 12px;
-    min-width:96px;             /* ความกว้างขั้นต่ำเท่ากัน */
-    border:1px solid var(--border);
-    border-radius:999px;
-    background:var(--surface);
-    font-weight:800;
-    text-align:center;
-  }
-
-  /* ให้ตัวสลับภาษา/โหมดไปอยู่ริมขวา ไม่เบียดลิงก์ */
-  .seg{margin-left:auto; flex:0 0 auto;}
-  .switch{flex:0 0 auto;}
-}
-@media (max-width:640px){
-  .links{flex-wrap:wrap;}
-  .tabs{
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);  /* 5 ปุ่มเท่ากันเป๊ะ */
-    gap:10px;
-    margin-top:4px;
-  }
-  .tabs a{
-    display:block; text-align:center;
-    padding:10px 0; border:1px solid var(--border);
-    border-radius:12px; background:var(--surface); font-weight:800;
-  }
-  .seg{margin-left:auto}
-}
-
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:20px}
+      .case{grid-template-columns:1fr;grid-column:span 12}
+      .cols-3{grid-template-columns:1fr 1fr}
+      .sm-card{grid-column:span 12}
+      .card{grid-column:span 12}
+      .kpis{grid-template-columns:1fr 1fr}
+      .insight{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .cols-3{grid-template-columns:1fr}
+      .nav{flex-wrap:wrap;gap:8px 12px}
+      .brand{flex-basis:100%}
+      .links{width:100%;border-top:1px solid var(--border);padding-top:8px}
+      .tabs a{min-width:96px}
+      .seg,.switch{flex:0 0 auto}
+    }
   </style>
 </head>
 <body>
 <header>
   <div class="wrap nav" role="navigation" aria-label="Primary">
     <div class="brand"><h1>Pisanu</h1></div>
+
+    <!-- NEW: tabs container (เมนูแถวเดียว) -->
     <div class="links">
-      <a href="#insights"><span data-i18n="nav_insights">Insights</span></a>
-      <a href="#results"><span data-i18n="nav_results">Results</span></a>
-      <a href="#experience"><span data-i18n="nav_experience">Experience</span></a>
-      <a href="#portfolio"><span data-i18n="nav_portfolio">Portfolio</span></a>
-      <a href="#contact"><span data-i18n="nav_contact">Contact</span></a>
+      <div class="tabs">
+        <a href="#insights"><span data-i18n="nav_insights">Insights</span></a>
+        <a href="#results"><span data-i18n="nav_results">Results</span></a>
+        <a href="#experience"><span data-i18n="nav_experience">Experience</span></a>
+        <a href="#portfolio"><span data-i18n="nav_portfolio">Portfolio</span></a>
+        <a href="#contact"><span data-i18n="nav_contact">Contact</span></a>
+      </div>
+
       <div class="seg" id="langSwitch" role="group" aria-label="Language switcher">
         <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
         <button type="button" data-lang="th" aria-pressed="false">TH</button>
       </div>
+
       <label class="switch" id="modeToggle" aria-label="Toggle dark mode">
         <input type="checkbox" id="modeCheckbox" />
         <span class="track"></span>
@@ -317,7 +271,7 @@
     </div>
   </section>
 
-  <!-- SKILLS MATRIX + CATEGORIES -->
+  <!-- SKILLS -->
   <section class="section" id="skills">
     <h2 data-i18n="skills_h">Key Skills</h2>
 
@@ -399,7 +353,9 @@
       </article>
       <!-- Card 5 vdo-->
       <article class="card" tabindex="0" data-tags="branding" data-type="video" data-src="assets/case-5.mp4" aria-label="Global Logistics Video">
-        <div class="thumb"><video src="assets/case-5.mp4" alt="Looker Studio"></video></div>
+        <div class="thumb">
+          <video preload="metadata" muted playsinline poster="assets/case-5-thumb.jpg"></video>
+        </div>
         <div class="body">
           <h3 class="title" data-i18n="p5_title">VDO Ads</h3>
           <div class="meta" data-i18n="p5_meta">Invites target audiences to engage with ads</div>
@@ -407,7 +363,9 @@
       </article>
       <!-- Card 6 vdo-->
       <article class="card" tabindex="0" data-tags="branding" data-type="video" data-src="assets/case-6.mp4" aria-label="Global Logistics Video">
-        <div class="thumb"><video src="assets/case-6.mp4" alt="Looker Studio"></video></div>
+        <div class="thumb">
+          <video preload="metadata" muted playsinline poster="assets/case-6-thumb.jpg"></video>
+        </div>
         <div class="body">
           <h3 class="title" data-i18n="p6_title">VDO Awareness</h3>
           <div class="meta" data-i18n="p6_meta">Creates awareness and builds credibility</div>
@@ -455,11 +413,15 @@
 <script>
 (() => {
 'use strict';
-// i18n dictionaries
-const i18n={
-  en:{
-    hero_h:'Pisanu Udomlapsakul',
-    hero_sub:'Performance-driven Paid Media Lead with 2+ years across global markets. Skilled in Meta, TikTok, Google; combining creative storytelling with data-driven insights.',
+
+/* Force page to start at top on reload */
+try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch(e){}
+window.scrollTo(0,0);
+window.addEventListener('pageshow', (e) => { if (e.persisted) window.scrollTo(0,0); });
+
+/* i18n dictionaries */
+const i18n={ /* (เหมือนเดิมทั้งหมด) */ 
+  en:{ hero_h:'Pisanu Udomlapsakul', hero_sub:'Performance-driven Paid Media Lead with 2+ years across global markets. Skilled in Meta, TikTok, Google; combining creative storytelling with data-driven insights.',
     cta_resume:'Resume',cta_contact:"Let's talk",
     portfolio_h:'Selected Portfolio',
     filter_all:'All', filter_ecom:'advertising', filter_logistics:'Analytics & Measurement', filter_branding:'Content',
@@ -494,31 +456,6 @@ const i18n={
     cta_h_strong:'Looking for measurable growth? Let’s talk.',
     cta_p_strong:'Open to Paid Media Lead / Performance roles · Bangkok-based · Hybrid/Remote.',
     m1:'Team ROAS (max)',m2:'CPA Reduction',m3:'Team Members Coached',
-
-    // ---- เพิ่มใน i18n.en ----
-exp1_title: 'Paid Media Lead · RNP EXPRESS Co., Ltd.',
-exp1_date: 'May 2024 — Present',
-exp2_title: 'Senior Digital Marketing Strategy Officer · RNP EXPRESS Co., Ltd.',
-exp2_date: 'Sep 2023 — May 2024',
-
-exp1_1: 'Managed full-funnel campaigns across Meta, TikTok, Google; 30+ campaigns monthly in 11 countries.',
-exp1_2: 'Built Paid Media Data Ops (SOPs, standards, dashboards in Looker Studio & Sheets).',
-exp1_3: 'Coached a 5-member team; cross-campaign learning and performance reviews (+35% efficiency).',
-exp1_4: 'Raised CTR +58% via A/B hook testing, format rotation, trend triggering.',
-exp1_5: 'Designed lookalike & retargeting frameworks (CVR +55%).',
-exp1_6: 'Launched seasonal promos (5.5, Black Friday, New Year) driving lead growth.',
-exp1_7: 'Bi-weekly performance consulting to executives; retention insights.',
-exp1_8: 'Resolved ad crises within 48h (policy, pacing, underperformance) to protect ROI.',
-
-exp2_1: 'Planned cross-channel promotions across Meta, TikTok, Google.',
-exp2_2: 'Built real-time dashboards for customer & behavior analysis.',
-exp2_3: 'Created funnel-based comms frameworks; 3× engagement.',
-exp2_4: 'End-to-end strategies lifted lead→conversion rate 2.3×.',
-exp2_5: 'Translated strategy into measurement frameworks for team and execs.',
-
-    
-
-    /* NEW */
     nav_insights:'Insights', nav_results:'Results', nav_experience:'Experience', nav_portfolio:'Portfolio', nav_contact:'Contact',
     insight_ga4_h:'GA4 / Looker Snapshot',
     insight_ga4_p:'Attribution, cohort LTV, and source/medium performance — dashboards I built for weekly exec reviews.',
@@ -537,8 +474,7 @@ exp2_5: 'Translated strategy into measurement frameworks for team and execs.',
     p6_title:'VDO Awareness',
     p6_meta:'Creates awareness and builds credibility'
   },
-  th:{
-    hero_h:'พิษณุ อุดมลาภสกุล',
+  th:{ hero_h:'พิษณุ อุดมลาภสกุล',
     hero_sub:'หัวหน้าฝ่ายโฆษณาเชิงประสิทธิภาพ (Paid Media) ประสบการณ์ 2+ ปี ครอบคลุม Meta, TikTok, Google ผสานครีเอทีฟกับข้อมูลเพื่อผลลัพธ์ที่วัดได้',
     cta_resume:'ดาวน์โหลดเรซูเม่',cta_contact:'มาคุยกัน',
     portfolio_h:'พอร์ตโฟลิโอคัดสรร',
@@ -574,29 +510,6 @@ exp2_5: 'Translated strategy into measurement frameworks for team and execs.',
     cta_h_strong:'อยากเติบโตแบบวัดผลได้? มาคุยกัน',
     cta_p_strong:'เปิดรับบทบาท Paid Media Lead / Performance · กรุงเทพฯ · Hybrid/Remote',
     m1:'ROAS สูงสุดของทีม',m2:'ลด CPA',m3:'สมาชิกทีมที่โค้ช',
-    // ---- เพิ่มใน i18n.th ----
-exp1_title: 'หัวหน้าฝ่ายโฆษณาแบบชำระเงิน (Paid Media Lead) · RNP EXPRESS Co., Ltd.',
-exp1_date: 'พ.ค. 2024 — ปัจจุบัน',
-exp2_title: 'Senior Digital Marketing Strategy Officer · RNP EXPRESS Co., Ltd.',
-exp2_date: 'ก.ย. 2023 — พ.ค. 2024',
-
-exp1_1: 'บริหารแคมเปญแบบ Full-funnel ครอบคลุม Meta, TikTok, Google; 30+ แคมเปญต่อเดือนใน 11 ประเทศ',
-exp1_2: 'วางโครงสร้าง Data Ops ด้าน Paid Media (SOP มาตรฐาน แดชบอร์ดใน Looker Studio และ Sheets)',
-exp1_3: 'โค้ชทีม 5 คน สร้างการเรียนรู้ข้ามแคมเปญและรีวิวผลงาน (ประสิทธิภาพ +35%)',
-exp1_4: 'ดัน CTR +58% ด้วยการทดสอบ A/B ด้าน Hook หมุนเวียนรูปแบบ และเกาะเทรนด์',
-exp1_5: 'ออกแบบกรอบงาน Lookalike และ Retargeting (CVR +55%)',
-exp1_6: 'ปล่อยโปรโมชันตามฤดูกาล (5.5, Black Friday, ปีใหม่) กระตุ้นการเติบโตของลีด',
-exp1_7: 'เป็นที่ปรึกษาผลงานรายสองสัปดาห์ให้ผู้บริหาร พร้อมอินไซต์ด้านรีเทนชัน',
-exp1_8: 'แก้ปัญหาแคมเปญฉุกเฉินภายใน 48 ชม. (นโยบาย จังหวะการจ่าย ผลงานต่ำ) เพื่อปกป้อง ROI',
-
-exp2_1: 'วางแผนโปรโมชันข้ามช่องทางบน Meta, TikTok, Google',
-exp2_2: 'สร้างแดชบอร์ดเรียลไทม์สำหรับวิเคราะห์ลูกค้าและพฤติกรรม',
-exp2_3: 'พัฒนากรอบงานสื่อสารตาม Funnel เพิ่มการมีส่วนร่วม 3×',
-exp2_4: 'กลยุทธ์แบบ End-to-end ยกระดับอัตรา Lead→Conversion 2.3×',
-exp2_5: 'แปลงกลยุทธ์เป็นกรอบการวัดผลสำหรับทีมและผู้บริหาร',
-
-
-    /* NEW */
     nav_insights:'อินไซต์', nav_results:'ผลงาน', nav_experience:'ประสบการณ์', nav_portfolio:'พอร์ตโฟลิโอ', nav_contact:'ติดต่อ',
     insight_ga4_h:'สแนปช็อต GA4 / Looker',
     insight_ga4_p:'แดชบอร์ดสำหรับรีวิวผู้บริหารรายสัปดาห์: Attribution, Cohort LTV และประสิทธิภาพตามแหล่งที่มา/มีเดีย',
@@ -631,10 +544,10 @@ function applyLang(l){
   document.title=l==='th'? 'พิษณุ อุดมลาภสกุล · Paid Media Lead' : 'Pisanu Udomlapsakul · Paid Media Lead';
 }
 
-// footer year
+/* footer year */
 const yEl=document.getElementById('y'); if(yEl) yEl.textContent=new Date().getFullYear();
 
-// dark mode
+/* dark mode */
 const modeCheckbox=document.getElementById('modeCheckbox');
 const prefersDark=window.matchMedia('(prefers-color-scheme: dark)');
 const savedMode=localStorage.getItem('mode');
@@ -647,20 +560,19 @@ function updateMode(isDark){
   try { localStorage.setItem('mode', isDark ? 'dark' : 'light'); } catch(e){}
   if(modeCheckbox) modeCheckbox.checked=isDark;
 }
-
 modeCheckbox?.addEventListener('change',()=>updateMode(modeCheckbox.checked));
 prefersDark.addEventListener?.('change',(e)=>{ if(!localStorage.getItem('mode')) updateMode(e.matches); });
 
-// language segmented control
+/* language segmented control */
 const langSeg=document.getElementById('langSwitch');
 langSeg?.addEventListener('click',(e)=>{
   const btn=e.target.closest('button[data-lang]'); if(!btn) return; applyLang(btn.dataset.lang);
 });
 
-// Init language
+/* Init language */
 applyLang(localStorage.getItem('lang')||'en');
 
-// ===== Count-up metrics =====
+/* Count-up metrics */
 const counters=[...document.querySelectorAll('.counter')];
 const ease=(t)=>1-Math.pow(1-t,3);
 function animateCount(el){
@@ -681,14 +593,14 @@ const io=new IntersectionObserver((ents)=>{
 },{threshold:0.6});
 counters.forEach(el=>io.observe(el));
 
-// Animate skill bars on view
+/* Animate skill bars on view */
 const bars=[...document.querySelectorAll('.bar>span')];
 const ioBars=new IntersectionObserver((ents)=>{
   ents.forEach(e=>{ if(e.isIntersecting){ e.target.style.transform='scaleX(1)'; ioBars.unobserve(e.target);} });
 },{threshold:0.4});
 bars.forEach(b=>ioBars.observe(b));
 
-// ===== Portfolio filter =====
+/* Portfolio filter */
 const filterBtns=[...document.querySelectorAll('.filter-btn')];
 const cards=[...document.querySelectorAll('.portfolio .card')];
 function applyFilter(key){
@@ -701,7 +613,7 @@ function applyFilter(key){
 }
 filterBtns.forEach(b=>b.addEventListener('click',()=>applyFilter(b.dataset.filter)));
 
-// ===== Lightbox (modal) =====
+/* Lightbox (modal) */
 const modal=document.getElementById('lightbox');
 const modalBody=document.getElementById('lb-body');
 const btnClose=document.getElementById('lb-close');
@@ -729,7 +641,9 @@ cards.forEach(c=>{
     const type=c.getAttribute('data-type');
     const src=c.getAttribute('data-src');
     if(type==='video'){
-      const v=document.createElement('video'); v.controls=true; v.src=src; v.setAttribute('playsinline',''); v.setAttribute('autoplay','');
+      const v=document.createElement('video');
+      v.controls=true; v.src=src;
+      v.setAttribute('playsinline',''); v.setAttribute('autoplay','');
       return v;
     }
     const img=new Image(); img.src=src; img.alt=c.getAttribute('aria-label')||'Preview';
@@ -739,18 +653,7 @@ cards.forEach(c=>{
   c.addEventListener('keydown',(e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openModal(build()); }});
 });
 
-// Self-tests (console) — ปรับให้ตรงกับ data-filter จริง
-try{
-  console.group('[Self-tests]');
-  const before=document.body.classList.contains('dark');
-  updateMode(!before); console.assert(document.body.classList.contains('dark')===!before,'Dark mode toggles');
-  updateMode(before);
-  applyFilter('Ads'); console.assert(cards.filter(c=>c.style.display!=='none').every(c=>c.getAttribute('data-tags').includes('Ads')),'Filter Ads');
-  applyFilter('all'); console.assert(cards.every(c=>c.style.display==='block'),'Filter all');
-  applyLang('th'); console.assert(document.documentElement.lang==='th','Lang=TH');
-  applyLang('en'); console.assert(document.documentElement.lang==='en','Lang=EN');
-  console.groupEnd();
-}catch(err){console.warn('Self-tests issue',err)}
+/* ลบ self-tests เดิมออกเพื่อไม่ให้รบกวนการทำงาน */
 })();
 </script>
 
