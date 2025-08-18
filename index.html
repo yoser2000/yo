@@ -142,6 +142,71 @@
     footer{padding:36px 0;color:var(--ink-soft);border-top:1px solid var(--border)}
     @media (max-width:980px){.hero{grid-template-columns:1fr;gap:20px}.case{grid-template-columns:1fr;grid-column:span 12}.cols-3{grid-template-columns:1fr 1fr}.sm-card{grid-column:span 12}.card{grid-column:span 12}.kpis{grid-template-columns:1fr 1fr}.insight{grid-template-columns:1fr}}
     @media (max-width:640px){.cols-3{grid-template-columns:1fr}}
+
+/* ======= Responsive polish ======= */
+
+/* ปรับระยะด้านข้างให้เข้ากับ iPhone notch */
+.wrap{padding-left:max(20px, env(safe-area-inset-left)); padding-right:max(20px, env(safe-area-inset-right));}
+
+/* ขนาดปุ่มให้แตะง่ายขึ้น */
+.btn{min-height:44px}
+
+/* กรอบสื่อในฮีโร่ให้ชัดและอัตราส่วน 16:9 */
+.hero-media{aspect-ratio:16/9; border-radius:12px; overflow:hidden; background:#000}
+
+/* KPI: 4 คอลัมน์บนจอใหญ่ → 2 บนแท็บเล็ต → 1 บนมือถือเล็ก */
+@media (max-width:980px){
+  .kpis{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){
+  .kpis{grid-template-columns:1fr}
+}
+
+/* เมตริก 3 กล่อง → 2 → 1 */
+@media (max-width:980px){
+  .cols-3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .cols-3{grid-template-columns:1fr}
+}
+
+/* พอร์ตโฟลิโอ: 2 คอลัมน์บนแท็บเล็ต, 1 บนมือถือ */
+@media (max-width:980px){
+  .portfolio{grid-template-columns:1fr 1fr}
+  .card{grid-column:span 1}
+}
+@media (max-width:640px){
+  .portfolio{grid-template-columns:1fr}
+}
+
+/* ฮีโร่: เวอร์ชั่นมือถือ */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr; gap:20px; padding:40px 0 20px}
+  .hero-card{order:2}
+}
+
+/* Navbar ให้ห่อเป็นสองบรรทัดได้ และเลื่อนได้บนหน้าจอแคบ */
+.links{flex-wrap:wrap}
+@media (max-width:640px){
+  header .links{overflow-x:auto; white-space:nowrap; gap:14px}
+  header .links::-webkit-scrollbar{display:none}
+}
+
+/* ปรับโมดัลสำหรับจอเล็ก */
+@media (max-width:640px){
+  .modal-dialog{max-width:92vw}
+  .modal-header{padding:8px 10px}
+}
+
+/* เพิ่มโฟกัสสำหรับแป้นพิมพ์ */
+a:focus-visible, button:focus-visible, .card:focus-visible{
+  outline:2px solid var(--primary);
+  outline-offset:2px;
+}
+
+/* วิดีโอ/รูปในกริดให้เต็มกล่องเสมอ (กันแถบดำ) */
+.card .thumb video{width:100%; height:100%; object-fit:cover}
+
   </style>
 </head>
 <body>
@@ -700,3 +765,4 @@ try{
 
 </body>
 </html>
+
